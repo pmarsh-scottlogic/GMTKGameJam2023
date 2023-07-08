@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://6dhbjrkjjroy"]
+[gd_scene load_steps=4 format=3 uid="uid://6dhbjrkjjroy"]
 
 [ext_resource type="PackedScene" uid="uid://1j2njtpaprvi" path="res://Scenes/player.tscn" id="1_ckmnh"]
+[ext_resource type="PackedScene" uid="uid://blhiio2ypw4sj" path="res://Scenes/arrow.tscn" id="2_mihxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b46d"]
 size = Vector2(39.8927, 38)
 
-[node name="Node2D" type="Node2D"]
+[node name="MainNode" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ckmnh")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-627, 415)
 scale = Vector2(62.5459, 1.7799)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(20.0522, 19.1022)
@@ -26,3 +29,5 @@ offset_bottom = 40.0
 position = Vector2(569, 323)
 scale = Vector2(1.18073, 29.0912)
 zoom = Vector2(0.35, 0.35)
+
+[node name="Arrow" parent="." instance=ExtResource("2_mihxa")]
