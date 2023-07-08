@@ -8,3 +8,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	look_at(get_global_mouse_position())
+	self.rotation_degrees += 180
