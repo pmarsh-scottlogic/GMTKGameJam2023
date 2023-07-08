@@ -6,6 +6,7 @@
 size = Vector2(133, 8)
 
 [node name="Arrow" type="RigidBody2D"]
+position = Vector2(316, 343)
 collision_layer = 2
 collision_mask = 2
 
@@ -15,5 +16,5 @@ shape = SubResource("RectangleShape2D_2lk44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.4583, 1.25002)
-scale = Vector2(2.91666, 2.91666)
+scale = Vector2(2, 2)
 texture = ExtResource("1_8dmi7")

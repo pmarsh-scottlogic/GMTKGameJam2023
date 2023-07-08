@@ -23,6 +23,12 @@ var aimstate: AimStates = AimStates.IDLE
 # The Indicator Arrow
 @onready var line := $Line2D
 
+# The Arrow
+@onready var arrow := $BowArea/Arrow
+
+# The Bow Area
+@onready var bowArea := $BowArea
+
 # Sound players
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
@@ -34,6 +40,8 @@ var arrowScene: PackedScene = preload("res://Scenes/arrow.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mainNode = get_tree().get_root().get_node("MainNode")
+	line.hide()
+	arrow.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,6 +50,7 @@ func _process(delta):
 		
 func _showLine():
 	line.show()
+	arrow.show()
 	line.points[0] = to_local(self.position)
 	var magnitude: float = (get_global_mouse_position() - self.position).length()
 	if magnitude > maxForce:
@@ -60,9 +69,14 @@ func _playerArrowLaunch(force: Vector2):
 
 func _spawnArrow():
 	var newArrow = arrowScene.instantiate()
-	newArrow.position = self.position
-	newArrow.look_at(get_global_mouse_position())
+	newArrow.position = arrow.global_position
+	if(get_global_mouse_position().x > self.get_position().x):
+		newArrow.rotation = bowArea.rotation
+		newArrow.set_scale(Vector2(-1,1))
+	else:
+		newArrow.rotation = bowArea.rotation
 	mainNode.add_child(newArrow)
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
@@ -102,6 +116,7 @@ func _launchInputLogic():
 	magnitude *= forceMagnitudeMultiplier
 	_playerArrowLaunch(launch * magnitude)
 	line.hide()
+	arrow.hide()
 	Engine.time_scale = 1
 	shootSoundPlayer.play()
 	aimstate = AimStates.IDLE
@@ -112,6 +127,7 @@ func _cancelAim():
 	Engine.time_scale = 1
 	aimstate = AimStates.IDLE
 	line.hide()
+	arrow.hide()
 
 func _integrate_forces(state):
 	if airbourne == false:
