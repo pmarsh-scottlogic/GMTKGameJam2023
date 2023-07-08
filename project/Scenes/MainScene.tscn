@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dhbjrkjjroy"]
+[gd_scene load_steps=8 format=3 uid="uid://6dhbjrkjjroy"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_j0hyc"]
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="1_pspuf"]
 [ext_resource type="Script" path="res://Scenes/BowAim.gd" id="3_8yflp"]
+[ext_resource type="PackedScene" uid="uid://84quhc8l4etp" path="res://Scenes/tilePlatformTest.tscn" id="4_ukl8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
 size = Vector2(117, 119)
@@ -65,3 +66,6 @@ offset_bottom = 40.0
 position = Vector2(569, 323)
 scale = Vector2(1.18073, 29.0912)
 zoom = Vector2(0.35, 0.35)
+
+[node name="tilePlatformTest" parent="." instance=ExtResource("4_ukl8i")]
+position = Vector2(1032, 216)
