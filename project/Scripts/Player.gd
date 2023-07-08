@@ -9,6 +9,8 @@ var magnitudeMultiplier: float = 12
 # Mouse held position
 var mouseHeld: bool = false
 
+@export var arrows: int = 10
+
 # The Indicator Arrow
 @onready var line := $Line2D
 
@@ -36,9 +38,12 @@ func _showLine():
 		line.points[1] = to_local(get_global_mouse_position())
 
 func _addPlayerForce(force: Vector2):
+	if arrows == 0:
+		return
 	self.linear_velocity = Vector2.ZERO
 	apply_impulse(force)
 	_spawnArrow()
+	arrows -= 1
 
 func _spawnArrow():
 	var newArrow = arrowScene.instantiate()
