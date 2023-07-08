@@ -7,7 +7,11 @@ extends RigidBody2D
 @export var forceMagnitudeMultiplier: float = 12
 
 # Mouse held position
-var mouseHeld: bool = false
+var leftMouseHeld: bool = false
+
+# State for checking if the player is aiming
+enum AimStates {IDLE, AIMING}
+var aimstate: AimStates = AimStates.IDLE
 
 # Time slowdown proportional speed
 @export var timeSLowProportion : float = 0.1
@@ -23,7 +27,6 @@ var mouseHeld: bool = false
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
 
-
 var mainNode: Node2D
 
 var arrowScene: PackedScene = preload("res://Scenes/arrow.tscn")
@@ -34,7 +37,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if mouseHeld:
+	if aimstate == AimStates.AIMING:
 		_showLine()
 		
 func _showLine():
@@ -61,20 +64,21 @@ func _spawnArrow():
 	mainNode.add_child(newArrow)
 
 func _input(event):
-	if event is InputEventMouseButton and !event.pressed:
-		mouseHeld = false
-		var launch: Vector2 = (get_global_mouse_position() - self.position).normalized()
-		var magnitude: float = (get_global_mouse_position() - self.position).length()
-		if magnitude > maxForce:
-			magnitude = maxForce
-		magnitude *= forceMagnitudeMultiplier
-		_playerArrowLaunch(launch * magnitude)
-		line.hide()
-		Engine.time_scale = 1
-		shootSoundPlayer.play()
-	elif event is InputEventMouseButton and event.pressed:
-		mouseHeld = true
-		Engine.time_scale = timeSLowProportion
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
+		print("LEFT", aimstate)
+		if event.pressed:
+			leftMouseHeld = true
+			_arrowAimLogic()
+		elif !event.pressed:
+			leftMouseHeld = false
+			_launchInputLogic()
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT :
+		print("RIGHT", aimstate)
+		if event.pressed:
+			_cancelAim()
+		elif !event.pressed:
+			pass
+			
 
 func _on_body_entered(body):
 	landSoundPlayer.play()
@@ -84,6 +88,32 @@ func _on_body_exited(body):
 	print("airbourne")
 	airbourne = true
 
+func _arrowAimLogic():
+	if aimstate != AimStates.IDLE:
+		return
+	Engine.time_scale = timeSLowProportion
+	aimstate = AimStates.AIMING
+
+func _launchInputLogic():
+	if aimstate != AimStates.AIMING :
+		return
+	var launch: Vector2 = (get_global_mouse_position() - self.position).normalized()
+	var magnitude: float = (get_global_mouse_position() - self.position).length()
+	if magnitude > maxForce:
+		magnitude = maxForce
+	magnitude *= forceMagnitudeMultiplier
+	_playerArrowLaunch(launch * magnitude)
+	line.hide()
+	Engine.time_scale = 1
+	shootSoundPlayer.play()
+	aimstate = AimStates.IDLE
+	
+func _cancelAim():
+	if aimstate != AimStates.AIMING:
+		return
+	Engine.time_scale = 1
+	aimstate = AimStates.IDLE
+	line.hide()
 
 func _integrate_forces(state):
 	if airbourne == false:
