@@ -61,6 +61,8 @@ func _playerArrowLaunch(force: Vector2):
 func _spawnArrow():
 	var newArrow = arrowScene.instantiate()
 	newArrow.position = self.position
+	newArrow.look_at(get_global_mouse_position())
+	newArrow.rotation_degrees += 180
 	mainNode.add_child(newArrow)
 
 func _input(event):
