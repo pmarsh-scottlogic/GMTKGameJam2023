@@ -45,3 +45,7 @@ shape = SubResource("RectangleShape2D_7b46d")
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(569, 323)
+zoom = Vector2(0.5, 0.5)
