@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tdkvs"]
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="2_pyof2"]
-[ext_resource type="Script" path="res://Scenes/BowAim.gd" id="3_0uf7o"]
+[ext_resource type="Script" path="res://Scripts/BowAim.gd" id="3_ofalc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
 size = Vector2(117, 119)
@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_fjcxm")
 sprite_frames = SubResource("SpriteFrames_pq2m8")
 
 [node name="BowArea" type="Node2D" parent="."]
-script = ExtResource("3_0uf7o")
+script = ExtResource("3_ofalc")
 
 [node name="Bow" type="Sprite2D" parent="BowArea"]
 position = Vector2(107, 0)
