@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://1t201cjpvtss"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_m20bs"]
+[ext_resource type="FontFile" uid="uid://sl580o80hh8n" path="res://Fonts/slkscr.ttf" id="2_ovabu"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_m20bs")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_ovabu")
+theme_override_font_sizes/font_size = 30
+text = "Num arrows: "
