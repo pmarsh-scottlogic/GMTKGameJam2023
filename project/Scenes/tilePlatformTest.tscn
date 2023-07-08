@@ -9258,7 +9258,8 @@ texture = ExtResource("1_04kci")
 28:16/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_5f7xe"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_10xhx")
 
 [node name="tilePlatformTest" type="TileMap"]
