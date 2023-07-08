@@ -16,7 +16,7 @@ var aimstate: AimStates = AimStates.IDLE
 # Time slowdown proportional speed
 @export var timeSLowProportion : float = 0.1
 
-@export var arrows: int = 10
+@export var arrows: int = 30
 
 @export var airbourne: bool
 
