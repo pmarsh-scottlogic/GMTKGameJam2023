@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8tqvb1ea7b5"]
+[gd_scene load_steps=7 format=3 uid="uid://by8tqvb1ea7b5"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tdkvs"]
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="2_pyof2"]
 [ext_resource type="Script" path="res://Scripts/BowAim.gd" id="3_ofalc"]
-[ext_resource type="AudioStream" uid="uid://b6cc23bdk5o4c" path="res://Sounds/shoot.wav" id="4_5vkv8"]
-[ext_resource type="AudioStream" uid="uid://lrc7ee5gunyj" path="res://Sounds/land.wav" id="5_orj1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
 size = Vector2(117, 119)
@@ -20,12 +18,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sslys"]
+size = Vector2(109.5, 39.5)
+
 [node name="Player" type="RigidBody2D"]
 position = Vector2(587, 226)
 mass = 3.0
 gravity_scale = 9.0
-max_contacts_reported = 1
-contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_tdkvs")
 
@@ -49,12 +48,6 @@ position = Vector2(107, 0)
 scale = Vector2(-0.257683, 1.03699)
 texture = ExtResource("2_pyof2")
 
-[node name="soundPlayers" type="Node2D" parent="."]
-
-[node name="shootSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
-stream = ExtResource("4_5vkv8")
-
-[node name="landSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
-stream = ExtResource("5_orj1g")
-
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="FootCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, 60.25)
+shape = SubResource("RectangleShape2D_sslys")

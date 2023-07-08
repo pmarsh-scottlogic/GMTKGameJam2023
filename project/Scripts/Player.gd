@@ -14,12 +14,15 @@ var mouseHeld: bool = false
 
 @export var arrows: int = 10
 
+@export var airbourne: bool
+
 # The Indicator Arrow
 @onready var line := $Line2D
 
 # Sound players
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
+
 
 var mainNode: Node2D
 
@@ -76,3 +79,20 @@ func _input(event):
 func _on_body_entered(body):
 	print("land")
 	landSoundPlayer.play()
+	airbourne = false
+
+func _on_body_exited(body):
+	print("airbourne")
+	airbourne = true
+
+
+func _integrate_forces(state):
+	if airbourne == false:
+		if Input.is_action_pressed("ui_left"):
+			apply_impulse(Vector2(-1,0) * 500.0)
+		elif Input.is_action_pressed("ui_right"):
+			apply_impulse(Vector2(1,0) * 500.0)
+	
+
+
+
