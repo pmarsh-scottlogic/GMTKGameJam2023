@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="1_pspuf"]
 [ext_resource type="Script" path="res://Scenes/BowAim.gd" id="3_8yflp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1gb"]
-radius = 63.0
-height = 126.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
+size = Vector2(117, 119)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
 animations = [{
@@ -24,20 +23,20 @@ size = Vector2(39.8927, 38)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(569, 221)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(587, 226)
 script = ExtResource("1_j0hyc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_2f1gb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_fjcxm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 sprite_frames = SubResource("SpriteFrames_pq2m8")
 
-[node name="BowArea" type="Node2D" parent="CharacterBody2D"]
+[node name="BowArea" type="Node2D" parent="RigidBody2D"]
 script = ExtResource("3_8yflp")
 
-[node name="Bow" type="Sprite2D" parent="CharacterBody2D/BowArea"]
+[node name="Bow" type="Sprite2D" parent="RigidBody2D/BowArea"]
 position = Vector2(107, 0)
 scale = Vector2(-0.257683, 1.03699)
 texture = ExtResource("1_pspuf")
