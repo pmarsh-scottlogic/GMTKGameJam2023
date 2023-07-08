@@ -28,8 +28,8 @@ func _addPlayerForce(force: Vector2):
 func _input(event):
 	if event is InputEventMouseButton and !event.pressed:
 		mouseHeld = false
-		var launch: Vector2 = (self.position - get_global_mouse_position()).normalized()
-		var magnitude: float = (self.position - get_global_mouse_position()).length()
+		var launch: Vector2 = (get_global_mouse_position() - self.position).normalized()
+		var magnitude: float = (get_global_mouse_position() - self.position).length()
 		magnitude *= magnitudeMultiplier
 		if magnitude > maxForce:
 			magnitude = maxForce
