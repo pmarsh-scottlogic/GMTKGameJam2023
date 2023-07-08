@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 # Speed cap for adding force
-var maxForce: float = 790
+var maxForce: float = 810
 
 # Multiplier for magnitude
-var magnitudeMultiplier: float = 8
+var magnitudeMultiplier: float = 12
 
 # Mouse held position
 var mouseHeld: bool = false
