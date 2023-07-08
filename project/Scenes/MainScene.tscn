@@ -9,6 +9,7 @@ size = Vector2(39.8927, 38)
 [node name="MainNode" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ehkht")]
+continuous_cd = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-627, 415)
