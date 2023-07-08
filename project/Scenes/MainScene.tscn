@@ -32,3 +32,5 @@ zoom = Vector2(0.35, 0.35)
 
 [node name="tilePlatformTest" parent="." instance=ExtResource("4_ukl8i")]
 position = Vector2(1032, 216)
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

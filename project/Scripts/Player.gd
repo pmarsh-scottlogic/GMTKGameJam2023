@@ -17,6 +17,10 @@ var mouseHeld: bool = false
 # The Indicator Arrow
 @onready var line := $Line2D
 
+# Sound players
+@onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
+@onready var landSoundPlayer := $soundPlayers/landSoundPlayer
+
 var mainNode: Node2D
 
 var arrowScene: PackedScene = preload("res://Scenes/arrow.tscn")
@@ -64,7 +68,11 @@ func _input(event):
 		_addPlayerForce(launch * magnitude)
 		line.hide()
 		Engine.time_scale = 1
+		shootSoundPlayer.play()
 	elif event is InputEventMouseButton and event.pressed:
 		mouseHeld = true
 		Engine.time_scale = timeSLowProportion
-			
+
+func _on_body_entered(body):
+	print("land")
+	landSoundPlayer.play()
