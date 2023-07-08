@@ -1,20 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://6dhbjrkjjroy"]
+[gd_scene load_steps=8 format=3 uid="uid://6dhbjrkjjroy"]
 
-[ext_resource type="PackedScene" uid="uid://1j2njtpaprvi" path="res://Scenes/player.tscn" id="1_ckmnh"]
-[ext_resource type="PackedScene" uid="uid://blhiio2ypw4sj" path="res://Scenes/arrow.tscn" id="2_mihxa"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_j0hyc"]
+[ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="1_pspuf"]
+[ext_resource type="Script" path="res://Scenes/BowAim.gd" id="3_8yflp"]
+[ext_resource type="PackedScene" uid="uid://84quhc8l4etp" path="res://Scenes/tilePlatformTest.tscn" id="4_ukl8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
+size = Vector2(117, 119)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pspuf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b46d"]
 size = Vector2(39.8927, 38)
 
-[node name="MainNode" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ckmnh")]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(587, 226)
+lock_rotation = true
+script = ExtResource("1_j0hyc")
+
+[node name="Line2D" type="Line2D" parent="RigidBody2D"]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 3.0
+default_color = Color(0, 1, 0.486275, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_fjcxm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+sprite_frames = SubResource("SpriteFrames_pq2m8")
+
+[node name="BowArea" type="Node2D" parent="RigidBody2D"]
+script = ExtResource("3_8yflp")
+
+[node name="Bow" type="Sprite2D" parent="RigidBody2D/BowArea"]
+position = Vector2(107, 0)
+scale = Vector2(-0.257683, 1.03699)
+texture = ExtResource("1_pspuf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-627, 415)
 scale = Vector2(62.5459, 1.7799)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(20.0522, 19.1022)
@@ -30,4 +67,5 @@ position = Vector2(569, 323)
 scale = Vector2(1.18073, 29.0912)
 zoom = Vector2(0.35, 0.35)
 
-[node name="Arrow" parent="." instance=ExtResource("2_mihxa")]
+[node name="tilePlatformTest" parent="." instance=ExtResource("4_ukl8i")]
+position = Vector2(1032, 216)
