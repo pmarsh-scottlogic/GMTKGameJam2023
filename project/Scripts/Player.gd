@@ -74,5 +74,4 @@ func _input(event):
 		Engine.time_scale = timeSLowProportion
 
 func _on_body_entered(body):
-	print("land")
 	landSoundPlayer.play()
