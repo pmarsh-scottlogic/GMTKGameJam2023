@@ -77,7 +77,6 @@ func _spawnArrow():
 		newArrow.rotation = bowArea.rotation
 	mainNode.add_child(newArrow)
 
-
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
 		if event.pressed:
@@ -91,10 +90,10 @@ func _input(event):
 			_cancelAim()
 		elif !event.pressed:
 			pass
-			
 
 func _on_body_entered(body):
 	landSoundPlayer.play()
+	$impactParticles.restart()
 	airbourne = false
 
 func _on_body_exited(body):
@@ -120,7 +119,7 @@ func _launchInputLogic():
 	Engine.time_scale = 1
 	shootSoundPlayer.play()
 	aimstate = AimStates.IDLE
-	
+
 func _cancelAim():
 	if aimstate != AimStates.AIMING:
 		return

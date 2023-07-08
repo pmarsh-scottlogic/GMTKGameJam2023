@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://by8tqvb1ea7b5"]
+[gd_scene load_steps=16 format=3 uid="uid://by8tqvb1ea7b5"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tdkvs"]
 [ext_resource type="Texture2D" uid="uid://b5o77ydul1qqc" path="res://Graphics/Character sprites/Lower body.png" id="2_joue4"]
@@ -44,6 +44,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_emmtb"]
+
+[sub_resource type="Gradient" id="Gradient_c8va3"]
+colors = PackedColorArray(0.572988, 0.572988, 0.572988, 1, 1, 1, 1, 0)
 
 [node name="Player" type="RigidBody2D"]
 position = Vector2(587, 226)
@@ -101,4 +106,25 @@ stream = ExtResource("4_5vkv8")
 [node name="landSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
 stream = ExtResource("5_orj1g")
 
+[node name="impactParticles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_emmtb")
+position = Vector2(4, 68)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 97.73
+gravity = Vector2(0, 0)
+initial_velocity_min = 19.19
+initial_velocity_max = 120.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
+color_ramp = SubResource("Gradient_c8va3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
