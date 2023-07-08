@@ -23,8 +23,11 @@ var aimstate: AimStates = AimStates.IDLE
 # The Indicator Arrow
 @onready var line := $Line2D
 
-# The Indicator Arrow
+# The Arrow
 @onready var arrow := $BowArea/Arrow
+
+# The Bow Area
+@onready var bowArea := $BowArea
 
 # Sound players
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
@@ -66,9 +69,17 @@ func _playerArrowLaunch(force: Vector2):
 
 func _spawnArrow():
 	var newArrow = arrowScene.instantiate()
-	newArrow.position = self.position
-	newArrow.look_at(get_global_mouse_position())
+	newArrow.position = arrow.global_position
+	if(get_global_mouse_position().x > self.get_position().x):
+		newArrow.rotation = bowArea.rotation
+		newArrow.set_scale(Vector2(-1,1))
+	else:
+		newArrow.rotation = bowArea.rotation
+	#newArrow.look_at(get_global_mouse_position())
 	mainNode.add_child(newArrow)
+
+
+
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :

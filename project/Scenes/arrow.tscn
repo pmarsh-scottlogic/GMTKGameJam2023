@@ -6,6 +6,7 @@
 size = Vector2(133, 8)
 
 [node name="Arrow" type="RigidBody2D"]
+position = Vector2(316, 343)
 collision_layer = 2
 collision_mask = 2
 
