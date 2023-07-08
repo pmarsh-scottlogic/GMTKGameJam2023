@@ -23,7 +23,6 @@ var mouseHeld: bool = false
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
 
-
 var mainNode: Node2D
 
 var arrowScene: PackedScene = preload("res://Scenes/arrow.tscn")
@@ -78,24 +77,14 @@ func _input(event):
 
 func _on_body_entered(body):
 	landSoundPlayer.play()
-	print("grounded")
 	airbourne = false
 
 func _on_body_exited(body):
-	print("airbourne")
 	airbourne = true
 
-
 func _integrate_forces(state):
-	print("integrate forces | airbourne: %s" % airbourne)
 	if airbourne == false:
 		if Input.is_action_pressed("ui_left"):
-			print("left")
 			apply_impulse(Vector2(-1,0) * 500.0)
 		elif Input.is_action_pressed("ui_right"):
-			print("right")
 			apply_impulse(Vector2(1,0) * 500.0)
-	
-
-
-
