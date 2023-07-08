@@ -1,13 +1,16 @@
 extends RigidBody2D
 
 # Speed cap for adding force
-var maxForce: float = 810
+@export var maxForce: float = 810
 
 # Multiplier for magnitude
-var magnitudeMultiplier: float = 12
+@export var forceMagnitudeMultiplier: float = 12
 
 # Mouse held position
 var mouseHeld: bool = false
+
+# Time slowdown proportional speed
+@export var timeSLowProportion : float = 0.1
 
 # The Indicator Arrow
 @onready var line := $Line2D
@@ -52,9 +55,11 @@ func _input(event):
 		var magnitude: float = (get_global_mouse_position() - self.position).length()
 		if magnitude > maxForce:
 			magnitude = maxForce
-		magnitude *= magnitudeMultiplier
+		magnitude *= forceMagnitudeMultiplier
 		_addPlayerForce(launch * magnitude)
 		line.hide()
+		Engine.time_scale = 1
 	elif event is InputEventMouseButton and event.pressed:
 		mouseHeld = true
+		Engine.time_scale = timeSLowProportion
 			
