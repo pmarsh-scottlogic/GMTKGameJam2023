@@ -44,7 +44,7 @@ func _showLine():
 	else:
 		line.points[1] = to_local(get_global_mouse_position())
 
-func _addPlayerForce(force: Vector2):
+func _playerArrowLaunch(force: Vector2):
 	if arrows == 0:
 		return
 	self.linear_velocity = Vector2.ZERO
@@ -65,7 +65,7 @@ func _input(event):
 		if magnitude > maxForce:
 			magnitude = maxForce
 		magnitude *= forceMagnitudeMultiplier
-		_addPlayerForce(launch * magnitude)
+		_playerArrowLaunch(launch * magnitude)
 		line.hide()
 		Engine.time_scale = 1
 		shootSoundPlayer.play()
