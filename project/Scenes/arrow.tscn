@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://blhiio2ypw4sj"]
+[gd_scene load_steps=3 format=3 uid="uid://c25t42bjioe3x"]
 
-[ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="1_bmpxw"]
+[ext_resource type="Texture2D" uid="uid://bmtc16rqsrlkx" path="res://Graphics/Object sprites/Arrow.png" id="1_8dmi7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lk44"]
 size = Vector2(133, 8)
@@ -15,5 +15,6 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_2lk44")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.08, 0.08)
-texture = ExtResource("1_bmpxw")
+position = Vector2(-1.4583, 1.25002)
+scale = Vector2(2.91666, 2.91666)
+texture = ExtResource("1_8dmi7")
