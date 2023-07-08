@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://6dhbjrkjjroy"]
+[gd_scene load_steps=6 format=3 uid="uid://6dhbjrkjjroy"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_j0hyc"]
+[ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="1_pspuf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1gb"]
+radius = 63.0
+height = 126.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pspuf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b46d"]
+size = Vector2(39.8927, 38)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(569, 221)
+script = ExtResource("1_j0hyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_2f1gb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_pq2m8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(415, 532)
+scale = Vector2(9.32, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20.0536, 20)
+scale = Vector2(1, 0.997055)
+shape = SubResource("RectangleShape2D_7b46d")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 40.0
+offset_bottom = 40.0
