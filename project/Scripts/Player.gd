@@ -1,10 +1,10 @@
 extends RigidBody2D
 
 # Speed cap for adding force
-var maxForce: float = 750
+var maxForce: float = 790
 
 # Multiplier for magnitude
-var magnitudeMultiplier: float = 2
+var magnitudeMultiplier: float = 8
 
 # Mouse held position
 var mouseHeld: bool = false
@@ -36,6 +36,7 @@ func _showLine():
 		line.points[1] = to_local(get_global_mouse_position())
 
 func _addPlayerForce(force: Vector2):
+	self.linear_velocity = Vector2.ZERO
 	apply_impulse(force)
 	_spawnArrow()
 
