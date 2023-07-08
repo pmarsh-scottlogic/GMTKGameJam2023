@@ -89,7 +89,7 @@ func _on_body_exited(body):
 	airbourne = true
 
 func _arrowAimLogic():
-	if aimstate != AimStates.IDLE:
+	if aimstate != AimStates.IDLE or arrows == 0:
 		return
 	Engine.time_scale = timeSLowProportion
 	aimstate = AimStates.AIMING
@@ -122,6 +122,3 @@ func _integrate_forces(state):
 		elif Input.is_action_pressed("ui_right"):
 			apply_impulse(Vector2(1,0) * 500.0)
 	
-
-
-
