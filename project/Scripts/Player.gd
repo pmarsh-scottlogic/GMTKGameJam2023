@@ -72,6 +72,3 @@ func _input(event):
 	elif event is InputEventMouseButton and event.pressed:
 		mouseHeld = true
 		Engine.time_scale = timeSLowProportion
-
-func _on_body_entered(body):
-	landSoundPlayer.play()
