@@ -67,6 +67,7 @@ func _playerArrowLaunch(force: Vector2):
 func _spawnArrow():
 	var newArrow = arrowScene.instantiate()
 	newArrow.position = self.position
+	newArrow.look_at(get_global_mouse_position())
 	mainNode.add_child(newArrow)
 
 func _input(event):
@@ -126,4 +127,3 @@ func _integrate_forces(state):
 			apply_impulse(Vector2(-1,0) * 500.0)
 		elif Input.is_action_pressed("ui_right"):
 			apply_impulse(Vector2(1,0) * 500.0)
-
