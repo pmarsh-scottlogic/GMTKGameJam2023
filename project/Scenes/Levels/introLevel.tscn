@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://whp6ylga1dan"]
+[gd_scene load_steps=5 format=3 uid="uid://whp6ylga1dan"]
 
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_8ff1o"]
 [ext_resource type="PackedScene" uid="uid://cakw8t1bm66ns" path="res://Scenes/Tilemaps/introLevelTileMap.tscn" id="2_i1ty3"]
 [ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="3_xa2y0"]
+[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_t2qwc"]
 
 [node name="MainNode" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(569, 323)
-scale = Vector2(1.18073, 29.0912)
-zoom = Vector2(0.35, 0.35)
 
 [node name="TileMap" parent="." instance=ExtResource("2_i1ty3")]
 position = Vector2(267, 611)
@@ -20,3 +16,5 @@ layer_0/tile_data = PackedInt32Array(-131067, 65536, 0, -196603, 65536, 0, -1966
 position = Vector2(-329, -77)
 
 [node name="Spike" parent="." instance=ExtResource("3_xa2y0")]
+
+[node name="Camera2D" parent="." instance=ExtResource("4_t2qwc")]
