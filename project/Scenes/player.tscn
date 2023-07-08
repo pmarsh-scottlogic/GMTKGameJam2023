@@ -24,6 +24,7 @@ animations = [{
 position = Vector2(587, 226)
 mass = 3.0
 gravity_scale = 9.0
+continuous_cd = 2
 max_contacts_reported = 1
 contact_monitor = true
 can_sleep = false
