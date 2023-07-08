@@ -7,5 +7,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	look_at(get_global_mouse_position())
-	self.rotation_degrees += 180
+	if(get_global_mouse_position().x > get_parent().get_position().x):
+		look_at(get_global_mouse_position())
+		self.rotation_degrees
+		set_scale(Vector2(-1,1))
+	else: 
+		look_at(get_global_mouse_position())
+		self.rotation_degrees += 180
+		set_scale(Vector2(1,1))
+
+	
+

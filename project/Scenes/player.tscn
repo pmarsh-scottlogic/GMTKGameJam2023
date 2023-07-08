@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8tqvb1ea7b5"]
+[gd_scene load_steps=14 format=3 uid="uid://by8tqvb1ea7b5"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tdkvs"]
+[ext_resource type="Texture2D" uid="uid://b5o77ydul1qqc" path="res://Graphics/Character sprites/Lower body.png" id="2_joue4"]
+[ext_resource type="Texture2D" uid="uid://bmtc16rqsrlkx" path="res://Graphics/Object sprites/Arrow.png" id="2_pidu6"]
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="2_pyof2"]
 [ext_resource type="Script" path="res://Scripts/BowAim.gd" id="3_ofalc"]
 [ext_resource type="AudioStream" uid="uid://b6cc23bdk5o4c" path="res://Sounds/shoot.wav" id="4_5vkv8"]
+[ext_resource type="Texture2D" uid="uid://bedu8fno7n51l" path="res://Graphics/Character sprites/Upper body Reload.png" id="5_nhycb"]
 [ext_resource type="AudioStream" uid="uid://lrc7ee5gunyj" path="res://Sounds/land.wav" id="5_orj1g"]
+[ext_resource type="Texture2D" uid="uid://bwwc47fkb3khn" path="res://Graphics/Character sprites/Upper body Full pull.png" id="6_q0xys"]
+[ext_resource type="Texture2D" uid="uid://c5v3yndmpim6u" path="res://Graphics/Character sprites/Upper body Half pull.png" id="7_qyqgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
 size = Vector2(117, 119)
@@ -13,7 +18,27 @@ size = Vector2(117, 119)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_joue4")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_pyof2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x41ml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qyqgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nhycb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q0xys")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +56,6 @@ lock_rotation = true
 script = ExtResource("1_tdkvs")
 
 [node name="Line2D" type="Line2D" parent="."]
-visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 width = 3.0
 default_color = Color(0, 1, 0.486275, 1)
@@ -40,15 +64,33 @@ default_color = Color(0, 1, 0.486275, 1)
 shape = SubResource("RectangleShape2D_fjcxm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 41)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pq2m8")
 
 [node name="BowArea" type="Node2D" parent="."]
 script = ExtResource("3_ofalc")
 
 [node name="Bow" type="Sprite2D" parent="BowArea"]
+visible = false
 position = Vector2(107, 0)
 scale = Vector2(-0.257683, 1.03699)
 texture = ExtResource("2_pyof2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BowArea"]
+position = Vector2(-29, -175)
+scale = Vector2(2, 2.02597)
+sprite_frames = SubResource("SpriteFrames_x41ml")
+frame = 1
+frame_progress = 0.0323329
+centered = false
+offset = Vector2(0, 40)
+
+[node name="Arrow" type="Sprite2D" parent="BowArea"]
+z_index = 5
+position = Vector2(75, -22)
+scale = Vector2(2, 2)
+texture = ExtResource("2_pidu6")
 
 [node name="soundPlayers" type="Node2D" parent="."]
 
