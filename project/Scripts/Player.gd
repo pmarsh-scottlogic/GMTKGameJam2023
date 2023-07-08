@@ -65,7 +65,6 @@ func _spawnArrow():
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
-		print("LEFT", aimstate)
 		if event.pressed:
 			leftMouseHeld = true
 			_arrowAimLogic()
@@ -73,7 +72,6 @@ func _input(event):
 			leftMouseHeld = false
 			_launchInputLogic()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT :
-		print("RIGHT", aimstate)
 		if event.pressed:
 			_cancelAim()
 		elif !event.pressed:
