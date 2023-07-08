@@ -75,10 +75,7 @@ func _spawnArrow():
 		newArrow.set_scale(Vector2(-1,1))
 	else:
 		newArrow.rotation = bowArea.rotation
-	#newArrow.look_at(get_global_mouse_position())
 	mainNode.add_child(newArrow)
-
-
 
 
 func _input(event):
