@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://csb4upybg6ysp"]
 
 [ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="1_vxboy"]
@@ -12,13 +13,7 @@
 
 [node name="MainNode" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2167.0
-offset_top = -1732.0
-offset_right = -2127.0
-offset_bottom = -1692.0
-scale = Vector2(429.957, 27.7233)
-color = Color(0.191406, 0.453125, 0.621094, 1)
+[node name="bigSky" parent="." instance=ExtResource("7_sxxb8")]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.203922, 0.298039, 0.458824, 1)

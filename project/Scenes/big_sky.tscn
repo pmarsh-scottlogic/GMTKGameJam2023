@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7bkqqf12f075"]
+
+[ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="1_e4b0x"]
+[ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="2_g7vgp"]
+
+[node name="bigSky" type="TileMap"]
+z_index = -10
+position = Vector2(0, -629)
+tile_set = ExtResource("1_e4b0x")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 65535, 1, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0)
+script = ExtResource("2_g7vgp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3296.0
+offset_top = -1083.0
+offset_right = -3248.0
+offset_bottom = -1043.0
+scale = Vector2(429.957, 27.7233)
+color = Color(0.191406, 0.453125, 0.621094, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -3220.0
+offset_top = 1279.0
+offset_right = -3172.0
+offset_bottom = 1319.0
+scale = Vector2(429.957, 27.7233)
+color = Color(0.367188, 0.8125, 0.886719, 1)
