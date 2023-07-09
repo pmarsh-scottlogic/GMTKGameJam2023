@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_4qntm"]
 [ext_resource type="Texture2D" uid="uid://bmtc16rqsrlkx" path="res://Graphics/Object sprites/Arrow.png" id="1_8dmi7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lk44"]
-size = Vector2(36, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpnvk"]
+radius = 18.9419
+height = 39.9884
 
 [node name="Arrow" type="RigidBody2D"]
 position = Vector2(316, 343)
@@ -12,10 +13,11 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4qntm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_2lk44")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.4583, 1.25002)
 texture = ExtResource("1_8dmi7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.950276, 0.059961)
+shape = SubResource("CapsuleShape2D_qpnvk")
