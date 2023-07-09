@@ -1,17 +1,17 @@
 [gd_scene load_steps=11 format=3 uid="uid://b1f28q8e4f5ll"]
 
-[ext_resource type="PackedScene" uid="uid://c7bkqqf12f075" path="res://Scenes/big_sky.tscn" id="1_8rw6o"]
+[ext_resource type="PackedScene" path="res://Scenes/big_sky.tscn" id="1_8rw6o"]
 [ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="1_yti6p"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="2_gnc5a"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="3_roxnr"]
-[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_k4x2t"]
+[ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="4_k4x2t"]
 [ext_resource type="TileSet" uid="uid://bxiwbjve4485c" path="res://Tilesets/Background.tres" id="4_tno7u"]
-[ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="5_yy7m2"]
-[ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="6_sgdn1"]
-[ext_resource type="PackedScene" uid="uid://bbsj4fddy8stc" path="res://Scenes/level_audio.tscn" id="7_n2od7"]
+[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="5_yy7m2"]
+[ext_resource type="PackedScene" path="res://Scenes/atmospheric_particles.tscn" id="6_sgdn1"]
+[ext_resource type="PackedScene" path="res://Scenes/level_audio.tscn" id="7_n2od7"]
 [ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="9_o06nu"]
 
-[node name="MainNode" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="bigSky" parent="." instance=ExtResource("1_8rw6o")]
 

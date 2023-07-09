@@ -1,14 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://whp6ylga1dan"]
+[gd_scene load_steps=10 format=3 uid="uid://whp6ylga1dan"]
 
-[ext_resource type="PackedScene" uid="uid://c7bkqqf12f075" path="res://Scenes/big_sky.tscn" id="1_07gtg"]
+[ext_resource type="PackedScene" path="res://Scenes/big_sky.tscn" id="1_07gtg"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_8ff1o"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="3_53ga6"]
 [ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="4_n6q5i"]
-[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_t2qwc"]
+[ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="4_t2qwc"]
 [ext_resource type="FontFile" uid="uid://sl580o80hh8n" path="res://Fonts/slkscr.ttf" id="5_ojkci"]
-[ext_resource type="Script" path="res://Scripts/introLevelAutioManager.gd" id="7_gf8ei"]
-[ext_resource type="AudioStream" uid="uid://bgo2r7y5xhv7x" path="res://Sounds/hifi/Crowd.mp3" id="7_yxmdm"]
-[ext_resource type="AudioStream" uid="uid://cq8icw17en2ba" path="res://Sounds/hifi/Drum roll.mp3" id="8_8y1oy"]
+[ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="7_on7cb"]
 
 [sub_resource type="Animation" id="Animation_xv7rl"]
 resource_name = "TItleBob"
@@ -31,7 +29,7 @@ _data = {
 "TItleBob": SubResource("Animation_xv7rl")
 }
 
-[node name="MainNode" type="Node2D"]
+[node name="introLevel" type="Node2D"]
 
 [node name="bigSky" parent="." instance=ExtResource("1_07gtg")]
 driftSpeed = 20.0
@@ -80,13 +78,6 @@ libraries = {
 "": SubResource("AnimationLibrary_1ejdy")
 }
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("7_gf8ei")
-
-[node name="CrowdPlayer" type="AudioStreamPlayer2D" parent="Node"]
-stream = ExtResource("7_yxmdm")
-autoplay = true
-
-[node name="DrumrollPlayer" type="AudioStreamPlayer2D" parent="Node"]
-stream = ExtResource("8_8y1oy")
-autoplay = true
+[node name="Gate" parent="." instance=ExtResource("7_on7cb")]
+position = Vector2(-12616, 25390)
+scale = Vector2(691.87, 25.694)
