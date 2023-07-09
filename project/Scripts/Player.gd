@@ -20,6 +20,10 @@ var aimstate: AimStates = AimStates.IDLE
 
 @export var airbourne: bool
 
+@export var fullDrawbackTime: float = 1
+var currentDrawbackTime: float = 0
+var drawbackMultiplier: float = 0
+
 # The Indicator Arrow
 @onready var line := $Line2D
 
@@ -47,17 +51,22 @@ func _ready():
 func _process(delta):
 	if aimstate == AimStates.AIMING:
 		showLine()
+	handleDrawback(delta)
+	print("power: " + str(drawbackMultiplier))
+	
+func handleDrawback(delta):
+	if leftMouseHeld:
+		currentDrawbackTime += delta
+		drawbackMultiplier = min(currentDrawbackTime / fullDrawbackTime, 1)
 		
 func showLine():
 	line.show()
 	arrow.show()
 	line.points[0] = to_local(self.position)
-	var magnitude: float = (get_global_mouse_position() - self.position).length()
-	if magnitude > maxForce:
-		var direction: Vector2 = (get_global_mouse_position() - self.position).normalized()
-		line.points[1] = to_local(self.position + (direction * maxForce))
-	else:
-		line.points[1] = to_local(get_global_mouse_position())
+	var magnitude: float = (get_global_mouse_position() - self.position).length() * drawbackMultiplier
+	magnitude = min(magnitude, maxForce)
+	var direction: Vector2 = (get_global_mouse_position() - self.position).normalized()
+	line.points[1] = to_local(self.position + (direction * magnitude))
 
 func playerArrowLaunch(force: Vector2):
 	if arrows == 0:
@@ -109,7 +118,7 @@ func launchInputLogic():
 	if aimstate != AimStates.AIMING :
 		return
 	var launch: Vector2 = (get_global_mouse_position() - self.position).normalized()
-	var magnitude: float = (get_global_mouse_position() - self.position).length()
+	var magnitude: float = (get_global_mouse_position() - self.position).length() * drawbackMultiplier
 	if magnitude > maxForce:
 		magnitude = maxForce
 	magnitude *= forceMagnitudeMultiplier
@@ -119,6 +128,8 @@ func launchInputLogic():
 	Engine.time_scale = 1
 	shootSoundPlayer.play()
 	aimstate = AimStates.IDLE
+	currentDrawbackTime = 0;
+	drawbackMultiplier = 0;
 
 func cancelAim():
 	if aimstate != AimStates.AIMING:
