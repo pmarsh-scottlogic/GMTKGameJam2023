@@ -95,7 +95,7 @@ offset = Vector2(0, 40)
 
 [node name="Arrow" type="Sprite2D" parent="BowArea"]
 z_index = 5
-position = Vector2(75, -22)
+position = Vector2(80, -20)
 scale = Vector2(2, 2)
 texture = ExtResource("2_pidu6")
 
