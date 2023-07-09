@@ -66,6 +66,10 @@ func handleDrawback(delta):
 	if leftMouseHeld:
 		currentDrawbackTime += delta
 		drawbackMultiplier = min(currentDrawbackTime / fullDrawbackTime, 1)
+		if drawbackMultiplier < 0.7:
+			get_node("BowArea/AnimatedSprite2D").frame = 1
+		else:
+			get_node("BowArea/AnimatedSprite2D").frame = 2
 		
 func showLine(delta):
 	line.show()
@@ -111,11 +115,11 @@ func _input(event):
 		if event.pressed:
 			leftMouseHeld = true
 			arrowAimLogic()
-			bowDrawSoundPlayer.play()
+			
 		elif !event.pressed:
 			leftMouseHeld = false
 			launchInputLogic()
-			bowDrawSoundPlayer.stop()
+			
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT :
 		if event.pressed:
 			cancelAim()
@@ -135,6 +139,7 @@ func arrowAimLogic():
 	if aimstate != AimStates.IDLE or arrows == 0:
 		return
 	Engine.time_scale = timeSlowProportion
+	bowDrawSoundPlayer.play()
 	aimstate = AimStates.AIMING
 
 func launchInputLogic():
@@ -154,6 +159,8 @@ func launchInputLogic():
 	currentDrawbackTime = 0;
 	drawbackMultiplier = 0;
 	launchParticles.restart()
+	bowDrawSoundPlayer.stop()
+	get_node("BowArea/AnimatedSprite2D").frame = 0
 
 func cancelAim():
 	if aimstate != AimStates.AIMING:
