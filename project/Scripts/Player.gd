@@ -44,6 +44,8 @@ var visualEnergymultiplier: float = 0
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
 @onready var bowDrawSoundPlayer := $soundPlayers/bowDrawSoundPlayer
 
+@onready var launchParticles :  = get_node("BowArea/launchParticles")
+
 var mainNode: Node2D
 
 var arrowScene: PackedScene = preload("res://Scenes/arrow.tscn")
@@ -151,6 +153,7 @@ func launchInputLogic():
 	aimstate = AimStates.IDLE
 	currentDrawbackTime = 0;
 	drawbackMultiplier = 0;
+	launchParticles.restart()
 
 func cancelAim():
 	if aimstate != AimStates.AIMING:

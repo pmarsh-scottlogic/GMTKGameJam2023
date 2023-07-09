@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm4ur0r2rlybd"]
+[gd_scene load_steps=8 format=3 uid="uid://dm4ur0r2rlybd"]
 
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_nprj1"]
 [ext_resource type="PackedScene" uid="uid://ckqu3wcno6vn4" path="res://Scenes/gate.tscn" id="1_v06n2"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="2_u7rjs"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
 [ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="4_1qbgj"]
+[ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
 
 [node name="MainNode" type="Node2D"]
 
@@ -33,3 +34,5 @@ enabled = true
 catchupSpeed = 20.0
 
 [node name="HUD" parent="." instance=ExtResource("4_1qbgj")]
+
+[node name="atmosphericParticles" parent="." instance=ExtResource("7_3xg44")]

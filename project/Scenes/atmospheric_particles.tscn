@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://i31tbybdlih4"]
+
+[sub_resource type="Curve" id="Curve_pu51n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.521978, 0.421053), 0.0, 0.0, 0, 0, Vector2(1, 0.273684), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="atmosphericParticles" type="CPUParticles2D"]
+position = Vector2(579, 330)
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(700, 400)
+gravity = Vector2(0, -60)
+tangential_accel_min = -20.0
+tangential_accel_max = 32.32
+damping_max = 45.455
+scale_amount_max = 51.5
+scale_amount_curve = SubResource("Curve_pu51n")
+color = Color(1, 1, 1, 0.294118)
