@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="2_7uj7o"]
 [ext_resource type="TileSet" uid="uid://b04t01hsukd1k" path="res://Tilesets/basicestTileset.tres" id="2_84wxk"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="2_u7rjs"]
-[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
-[ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="4_1qbgj"]
-[ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
+[ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
+[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_1qbgj"]
+[ext_resource type="PackedScene" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
 [ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="10_1vwvv"]
 
 [node name="MainNode" type="Node2D"]
