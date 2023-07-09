@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var followPlayer := true
 @export var maxSpeed : float = 10
-@export var catchupSpeed : float = 5
+@export var catchupSpeed : float = 20
 @export var lookAheadDistance := 250
 
 @onready var playerNode = get_tree().get_root().get_node("Player")
