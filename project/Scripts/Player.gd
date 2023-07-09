@@ -19,13 +19,16 @@ var aimstate: AimStates = AimStates.IDLE
 @export var arrows: int = 30
 
 @export var airbourne: bool
+@export var lineLengthMultiplier: float = 1
 
 @export var fullDrawbackTime: float = 1
 var currentDrawbackTime: float = 0
 var drawbackMultiplier: float = 0
 
+var lineAppearanceTimer: float = 0
+
 # The Indicator Arrow
-@onready var line := $Line2D
+@onready var line := get_node("BowArea/Line2D")
 
 # The Arrow
 @onready var arrow := $BowArea/Arrow
@@ -50,23 +53,34 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if aimstate == AimStates.AIMING:
-		showLine()
+		showLine(delta)
 	handleDrawback(delta)
-	print("power: " + str(drawbackMultiplier))
 	
 func handleDrawback(delta):
 	if leftMouseHeld:
 		currentDrawbackTime += delta
 		drawbackMultiplier = min(currentDrawbackTime / fullDrawbackTime, 1)
 		
-func showLine():
+func showLine(delta):
 	line.show()
 	arrow.show()
-	line.points[0] = to_local(self.position)
+	line.points[0] = Vector2.ZERO
 	var magnitude: float = (get_global_mouse_position() - self.position).length() * drawbackMultiplier
-	magnitude = min(magnitude, maxForce)
-	var direction: Vector2 = (get_global_mouse_position() - self.position).normalized()
-	line.points[1] = to_local(self.position + (direction * magnitude))
+	magnitude = min(magnitude, maxForce) * lineLengthMultiplier
+	
+	var visualEnergyAppliedAt = 0.6
+	var normConst = 1 / (1 - visualEnergyAppliedAt)
+	var visualEnergymultiplier = max(drawbackMultiplier - visualEnergyAppliedAt, 0) * normConst
+	
+	var shakeAmount : float =  visualEnergymultiplier * 2
+	var shakeOffset := Vector2.UP * sin(lineAppearanceTimer * 800) * shakeAmount
+	line.points[1] = Vector2.LEFT * magnitude + shakeOffset
+	
+	var redness = visualEnergymultiplier
+	line.set_modulate(Color(1, 1 - redness / 2, 1 - redness, 1))
+	
+	lineAppearanceTimer += delta
+	
 
 func playerArrowLaunch(force: Vector2):
 	if arrows == 0:
