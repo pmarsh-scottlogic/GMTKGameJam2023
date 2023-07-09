@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5v3yndmpim6u" path="res://Graphics/Character sprites/Upper body Half pull.png" id="7_qyqgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
-size = Vector2(117, 119)
+size = Vector2(41, 130.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
 animations = [{
@@ -67,6 +67,7 @@ width = 3.0
 default_color = Color(0, 1, 0.486275, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 5.75)
 shape = SubResource("RectangleShape2D_fjcxm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
