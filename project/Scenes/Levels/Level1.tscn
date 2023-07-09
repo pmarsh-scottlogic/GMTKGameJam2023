@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="1_8vf82"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_nprj1"]
-[ext_resource type="PackedScene" uid="uid://ckqu3wcno6vn4" path="res://Scenes/gate.tscn" id="1_v06n2"]
+[ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="1_v06n2"]
 [ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="2_7uj7o"]
 [ext_resource type="TileSet" uid="uid://b04t01hsukd1k" path="res://Tilesets/basicestTileset.tres" id="2_84wxk"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="2_u7rjs"]
@@ -34,10 +34,7 @@ position = Vector2(2379, 338)
 
 [node name="Player" parent="." instance=ExtResource("1_nprj1")]
 position = Vector2(172, 273)
-timeSlowProportion = 0.1
 arrows = 8
-airbourne = false
-lineLengthMultiplier = 1.0
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(190, 277)

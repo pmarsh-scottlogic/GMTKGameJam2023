@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckqu3wcno6vn4"]
+[gd_scene load_steps=5 format=3 uid="uid://cvx6xtsjprh3s"]
 
-[ext_resource type="Texture2D" path="res://Graphics/Object sprites/Gate.png" id="1_2bt28"]
+[ext_resource type="Texture2D" uid="uid://dofcig5jqh1re" path="res://Graphics/Object sprites/Gate.png" id="1_2bt28"]
 [ext_resource type="Script" path="res://Scripts/Gate.gd" id="2_p6vw1"]
 [ext_resource type="AudioStream" uid="uid://dbpvycawl8dxa" path="res://Sounds/hifi/fanfare.wav" id="3_22ox8"]
 

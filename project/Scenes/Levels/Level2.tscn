@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://csb4upybg6ysp"]
+[gd_scene load_steps=10 format=3 uid="uid://csb4upybg6ysp"]
 
-[ext_resource type="PackedScene" path="res://Scenes/gate.tscn" id="1_vxboy"]
+[ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="1_vxboy"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="2_optk3"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="3_6lbbi"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_37l4k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="6_dloww"]
 [ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="7_vd86d"]
 [ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="8_gd3mp"]
+[ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="9_xj7gs"]
 
 [node name="MainNode" type="Node2D"]
 
@@ -57,3 +58,30 @@ tile_set = ExtResource("7_vd86d")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0)
 script = ExtResource("8_gd3mp")
+
+[node name="Spike" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(237, -93)
+
+[node name="Spike2" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(399, -92)
+
+[node name="Spike3" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(431, -861)
+
+[node name="Spike4" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(688, -860)
+
+[node name="Spike5" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(786, -860)
+
+[node name="Spike6" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(1037, -665)
+
+[node name="Spike7" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(1328, -667)
+
+[node name="Spike8" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(1182, -665)
+
+[node name="Spike9" parent="." instance=ExtResource("9_xj7gs")]
+position = Vector2(464, -93)
