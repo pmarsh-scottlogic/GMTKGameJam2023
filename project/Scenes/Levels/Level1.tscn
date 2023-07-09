@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm4ur0r2rlybd"]
+[gd_scene load_steps=10 format=3 uid="uid://dm4ur0r2rlybd"]
 
+[ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="1_8vf82"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_nprj1"]
-[ext_resource type="PackedScene" path="res://Scenes/gate.tscn" id="1_v06n2"]
+[ext_resource type="PackedScene" uid="uid://ckqu3wcno6vn4" path="res://Scenes/gate.tscn" id="1_v06n2"]
+[ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="2_7uj7o"]
 [ext_resource type="TileSet" uid="uid://b04t01hsukd1k" path="res://Tilesets/basicestTileset.tres" id="2_84wxk"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="2_u7rjs"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
@@ -9,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
 
 [node name="MainNode" type="Node2D"]
+
+[node name="bigSky" type="TileMap" parent="."]
+position = Vector2(0, -629)
+tile_set = ExtResource("1_8vf82")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0)
+script = ExtResource("2_7uj7o")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.203922, 0.298039, 0.458824, 1)
