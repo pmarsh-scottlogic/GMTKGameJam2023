@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm4ur0r2rlybd"]
+[gd_scene load_steps=11 format=3 uid="uid://dm4ur0r2rlybd"]
 
 [ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="1_8vf82"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_nprj1"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
 [ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="4_1qbgj"]
 [ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
+[ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="10_1vwvv"]
 
 [node name="MainNode" type="Node2D"]
 
 [node name="bigSky" type="TileMap" parent="."]
+z_index = -10
 position = Vector2(0, -629)
 tile_set = ExtResource("1_8vf82")
 format = 2
@@ -55,3 +57,14 @@ catchupSpeed = 20.0
 [node name="HUD" parent="." instance=ExtResource("4_1qbgj")]
 
 [node name="atmosphericParticles" parent="." instance=ExtResource("7_3xg44")]
+
+[node name="TargetSprite" type="Sprite2D" parent="."]
+position = Vector2(2035, 363)
+rotation = 0.47822
+texture = ExtResource("10_1vwvv")
+
+[node name="Line2D" type="Line2D" parent="TargetSprite"]
+z_index = -1
+points = PackedVector2Array(12.1038, -28.8012, 36.2107, -4.67008, 39.2446, -1.63318, 56.5844, 15.7239, 7.75439, 41.035)
+width = 4.0
+default_color = Color(0.254902, 0.141176, 0.0745098, 1)

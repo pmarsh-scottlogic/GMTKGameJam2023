@@ -1,22 +1,37 @@
 [gd_scene load_steps=4 format=3 uid="uid://bty5tulh00g33"]
 
 [ext_resource type="Script" path="res://Scripts/Spike.gd" id="1_4r3bs"]
-[ext_resource type="Texture2D" uid="uid://bvvajn47oivvm" path="res://Graphics/Object sprites/spoik.png" id="2_8q7ta"]
+[ext_resource type="Texture2D" uid="uid://bx0cd0alypsmm" path="res://Graphics/Object sprites/Spikes tile.png" id="2_sgyi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvfti"]
-size = Vector2(268, 18)
+size = Vector2(150, 12)
 
 [node name="Spike" type="RigidBody2D"]
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_4r3bs")
 
-[node name="Spoik" type="Sprite2D" parent="."]
-scale = Vector2(8.66, 8.66)
-texture = ExtResource("2_8q7ta")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 130)
+position = Vector2(-1, 10)
 shape = SubResource("RectangleShape2D_uvfti")
+
+[node name="SpikesTile" type="Sprite2D" parent="."]
+texture = ExtResource("2_sgyi1")
+
+[node name="SpikesTile2" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("2_sgyi1")
+
+[node name="SpikesTile3" type="Sprite2D" parent="."]
+position = Vector2(-32, 0)
+texture = ExtResource("2_sgyi1")
+
+[node name="SpikesTile4" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+texture = ExtResource("2_sgyi1")
+
+[node name="SpikesTile5" type="Sprite2D" parent="."]
+position = Vector2(-64, 0)
+texture = ExtResource("2_sgyi1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
