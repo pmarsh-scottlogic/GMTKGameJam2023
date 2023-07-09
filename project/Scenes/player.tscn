@@ -74,9 +74,9 @@ contact_monitor = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_tdkvs")
-maxForce = 200.0
+maxForce = 205.0
 forceMagnitudeMultiplier = 15.0
-fullDrawbackTime = 0.1
+fullDrawbackTime = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
