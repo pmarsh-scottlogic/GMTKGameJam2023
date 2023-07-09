@@ -86,7 +86,6 @@ func showLine(delta):
 	line.set_modulate(Color(1, 1 - redness / 2, 1 - redness, 1))
 	
 	lineAppearanceTimer += delta
-	
 
 func playerArrowLaunch(force: Vector2):
 	if arrows == 0:
@@ -104,6 +103,7 @@ func spawnArrow():
 		newArrow.set_scale(Vector2(-1,1))
 	else:
 		newArrow.rotation = bowArea.rotation
+	
 	mainNode.add_child(newArrow)
 
 func _input(event):
