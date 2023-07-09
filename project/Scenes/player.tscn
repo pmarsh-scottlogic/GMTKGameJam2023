@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://by8tqvb1ea7b5"]
+[gd_scene load_steps=20 format=3 uid="uid://by8tqvb1ea7b5"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tdkvs"]
 [ext_resource type="Texture2D" uid="uid://b5o77ydul1qqc" path="res://Graphics/Character sprites/Lower body.png" id="2_joue4"]
 [ext_resource type="Texture2D" uid="uid://bmtc16rqsrlkx" path="res://Graphics/Object sprites/Arrow.png" id="2_pidu6"]
 [ext_resource type="Texture2D" uid="uid://ceut506vnfylm" path="res://icon.svg" id="2_pyof2"]
 [ext_resource type="Script" path="res://Scripts/BowAim.gd" id="3_ofalc"]
-[ext_resource type="AudioStream" uid="uid://b6cc23bdk5o4c" path="res://Sounds/shoot.wav" id="4_5vkv8"]
 [ext_resource type="Texture2D" uid="uid://bedu8fno7n51l" path="res://Graphics/Character sprites/Upper body Reload.png" id="5_nhycb"]
-[ext_resource type="AudioStream" uid="uid://lrc7ee5gunyj" path="res://Sounds/land.wav" id="5_orj1g"]
 [ext_resource type="Texture2D" uid="uid://bwwc47fkb3khn" path="res://Graphics/Character sprites/Upper body Full pull.png" id="6_q0xys"]
 [ext_resource type="Texture2D" uid="uid://c5v3yndmpim6u" path="res://Graphics/Character sprites/Upper body Half pull.png" id="7_qyqgq"]
+[ext_resource type="AudioStream" uid="uid://wobvdotji8x1" path="res://Sounds/hifi/whoosh_long.mp3" id="9_2f4rx"]
+[ext_resource type="AudioStream" uid="uid://dk4arwa4fqld0" path="res://Sounds/hifi/landing.mp3" id="10_fywpg"]
+[ext_resource type="AudioStream" uid="uid://ciw0rufrmn2xi" path="res://Sounds/hifi/bow_draw.mp3" id="11_uco05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
 size = Vector2(18, 67)
@@ -120,10 +121,13 @@ shape = SubResource("CapsuleShape2D_3q86m")
 [node name="soundPlayers" type="Node2D" parent="."]
 
 [node name="shootSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
-stream = ExtResource("4_5vkv8")
+stream = ExtResource("9_2f4rx")
 
 [node name="landSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
-stream = ExtResource("5_orj1g")
+stream = ExtResource("10_fywpg")
+
+[node name="bowDrawSoundPlayer" type="AudioStreamPlayer2D" parent="soundPlayers"]
+stream = ExtResource("11_uco05")
 
 [node name="impactParticles" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_emmtb")
