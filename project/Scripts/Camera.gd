@@ -1,8 +1,8 @@
 extends Camera2D
 
 @export var followPlayer := true
-@export var maxSpeed := 10
-@export var catchupSpeed := 5
+@export var maxSpeed : float = 10
+@export var catchupSpeed : float = 5
 @export var lookAheadDistance := 250
 
 @onready var playerNode = get_tree().get_root().get_node("Player")
@@ -30,6 +30,6 @@ func getTarget():
 func _process(delta):
 	var target : Vector2 = getTarget()
 	var positionToTarget : Vector2 = target - position
-	var movementAmount = min(positionToTarget.length() * catchupSpeed * delta, maxSpeed * delta)
+	var movementAmount = min(positionToTarget.length() * catchupSpeed * 0.001 * delta, maxSpeed * delta)
 	
-	position = position + positionToTarget * 5 * delta
+	position = position + positionToTarget * movementAmount

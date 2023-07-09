@@ -7,3 +7,5 @@ position = Vector2(569, 323)
 scale = Vector2(1.18073, 29.0912)
 zoom = Vector2(0.35, 0.35)
 script = ExtResource("1_exgnf")
+catchupSpeed = 50.0
+lookAheadDistance = 50

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5v3yndmpim6u" path="res://Graphics/Character sprites/Upper body Half pull.png" id="7_qyqgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
-size = Vector2(41, 130.5)
+size = Vector2(18, 67)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
 animations = [{
@@ -53,13 +53,15 @@ colors = PackedColorArray(0.572988, 0.572988, 0.572988, 1, 1, 1, 1, 0)
 [node name="Player" type="RigidBody2D"]
 position = Vector2(587, 226)
 mass = 3.0
-gravity_scale = 9.0
+gravity_scale = 2.5
 continuous_cd = 2
 max_contacts_reported = 1
 contact_monitor = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_tdkvs")
+maxForce = 200.0
+forceMagnitudeMultiplier = 15.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
@@ -67,26 +69,18 @@ width = 3.0
 default_color = Color(0, 1, 0.486275, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, 5.75)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_fjcxm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, 41)
-scale = Vector2(2, 2)
+position = Vector2(1, 16)
 sprite_frames = SubResource("SpriteFrames_pq2m8")
 
 [node name="BowArea" type="Node2D" parent="."]
 script = ExtResource("3_ofalc")
 
-[node name="Bow" type="Sprite2D" parent="BowArea"]
-visible = false
-position = Vector2(107, 0)
-scale = Vector2(-0.257683, 1.03699)
-texture = ExtResource("2_pyof2")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BowArea"]
-position = Vector2(-29, -175)
-scale = Vector2(2, 2.02597)
+position = Vector2(-15, -92)
 sprite_frames = SubResource("SpriteFrames_x41ml")
 frame = 1
 frame_progress = 0.0323329
@@ -95,8 +89,7 @@ offset = Vector2(0, 40)
 
 [node name="Arrow" type="Sprite2D" parent="BowArea"]
 z_index = 5
-position = Vector2(80, -20)
-scale = Vector2(2, 2)
+position = Vector2(40, -17)
 texture = ExtResource("2_pidu6")
 
 [node name="soundPlayers" type="Node2D" parent="."]
@@ -109,7 +102,7 @@ stream = ExtResource("5_orj1g")
 
 [node name="impactParticles" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_emmtb")
-position = Vector2(4, 68)
+position = Vector2(1, 30)
 emitting = false
 lifetime = 0.5
 one_shot = true
