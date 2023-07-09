@@ -76,7 +76,7 @@ lock_rotation = true
 script = ExtResource("1_tdkvs")
 maxForce = 205.0
 forceMagnitudeMultiplier = 15.0
-fullDrawbackTime = 0.05
+fullDrawbackTime = 0.025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
