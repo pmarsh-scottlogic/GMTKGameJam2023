@@ -10,6 +10,14 @@
 
 [node name="MainNode" type="Node2D"]
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.203922, 0.298039, 0.458824, 1)
+energy = 0.15
+blend_mode = 1
+shadow_enabled = true
+height = 0.49
+max_distance = 9555.0
+
 [node name="Gate" parent="." instance=ExtResource("1_v06n2")]
 
 [node name="Player" parent="." instance=ExtResource("1_nprj1")]

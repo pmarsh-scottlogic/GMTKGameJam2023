@@ -166,6 +166,6 @@ func cancelAim():
 func _integrate_forces(state):
 	if airbourne == false:
 		if Input.is_action_pressed("ui_left"):
-			apply_impulse(Vector2(-1,0) * 500.0)
+			apply_impulse(Vector2.LEFT * 500.0)
 		elif Input.is_action_pressed("ui_right"):
-			apply_impulse(Vector2(1,0) * 500.0)
+			apply_impulse(Vector2.RIGHT * 500.0)

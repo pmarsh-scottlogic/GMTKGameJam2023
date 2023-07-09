@@ -18,7 +18,6 @@ func getFollowPlayerTarget():
 	var mag = cameraPosToMousePos.length()
 	var newMag : float = min(mag, lookAheadDistance)
 	var target := playerPos + cameraPosToMousePos.normalized() * newMag
-	print(target)
 	return target
 
 func getTarget():
