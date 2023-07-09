@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://whp6ylga1dan"]
+[gd_scene load_steps=12 format=3 uid="uid://whp6ylga1dan"]
 
 [ext_resource type="PackedScene" uid="uid://c7bkqqf12f075" path="res://Scenes/big_sky.tscn" id="1_07gtg"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_8ff1o"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="4_n6q5i"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_t2qwc"]
 [ext_resource type="FontFile" uid="uid://sl580o80hh8n" path="res://Fonts/slkscr.ttf" id="5_ojkci"]
+[ext_resource type="Script" path="res://Scripts/introLevelAutioManager.gd" id="7_gf8ei"]
+[ext_resource type="AudioStream" uid="uid://bgo2r7y5xhv7x" path="res://Sounds/hifi/Crowd.mp3" id="7_yxmdm"]
+[ext_resource type="AudioStream" uid="uid://cq8icw17en2ba" path="res://Sounds/hifi/Drum roll.mp3" id="8_8y1oy"]
 
 [sub_resource type="Animation" id="Animation_xv7rl"]
 resource_name = "TItleBob"
@@ -59,18 +62,16 @@ default_color = Color(0.254902, 0.141176, 0.0745098, 1)
 [node name="TitleCanvas" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="TitleCanvas"]
-offset_left = 395.0
-offset_top = 37.0
-offset_right = 1226.0
-offset_bottom = 537.001
+offset_left = 390.0
+offset_top = 114.0
+offset_right = 1221.0
+offset_bottom = 354.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_ojkci")
 theme_override_font_sizes/font_size = 100
-text = "Untitled
-Archery
-Game
-"
+text = "Off-
+Target"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TitleCanvas"]
@@ -78,3 +79,14 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_1ejdy")
 }
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("7_gf8ei")
+
+[node name="CrowdPlayer" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("7_yxmdm")
+autoplay = true
+
+[node name="DrumrollPlayer" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("8_8y1oy")
+autoplay = true

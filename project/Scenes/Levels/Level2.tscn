@@ -1,19 +1,26 @@
-
 [gd_scene load_steps=10 format=3 uid="uid://csb4upybg6ysp"]
 
+[ext_resource type="PackedScene" uid="uid://c7bkqqf12f075" path="res://Scenes/big_sky.tscn" id="1_br1ci"]
 [ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="1_vxboy"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="2_optk3"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="3_6lbbi"]
-[ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="4_37l4k"]
-[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="5_d7dac"]
-[ext_resource type="PackedScene" path="res://Scenes/atmospheric_particles.tscn" id="6_dloww"]
-[ext_resource type="TileSet" uid="uid://dxgqfk0olewq" path="res://Tilesets/skyTileset.tres" id="7_vd86d"]
-[ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="8_gd3mp"]
+[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_37l4k"]
+[ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="5_d7dac"]
+[ext_resource type="PackedScene" uid="uid://i31tbybdlih4" path="res://Scenes/atmospheric_particles.tscn" id="6_dloww"]
+[ext_resource type="PackedScene" uid="uid://bbsj4fddy8stc" path="res://Scenes/level_audio.tscn" id="6_jgpcl"]
 [ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="9_xj7gs"]
 
 [node name="MainNode" type="Node2D"]
 
-[node name="bigSky" parent="." instance=ExtResource("7_sxxb8")]
+[node name="bigSky" parent="." instance=ExtResource("1_br1ci")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2167.0
+offset_top = -1732.0
+offset_right = -2127.0
+offset_bottom = -1692.0
+scale = Vector2(429.957, 27.7233)
+color = Color(0.191406, 0.453125, 0.621094, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.203922, 0.298039, 0.458824, 1)
@@ -42,17 +49,11 @@ scale = Vector2(1, 1)
 enabled = true
 catchupSpeed = 20.0
 
+[node name="levelAudio" parent="Camera2D" instance=ExtResource("6_jgpcl")]
+
 [node name="HUD" parent="." instance=ExtResource("5_d7dac")]
 
 [node name="atmosphericParticles" parent="." instance=ExtResource("6_dloww")]
-
-[node name="bigSky" type="TileMap" parent="."]
-z_index = -10
-position = Vector2(0, -629)
-tile_set = ExtResource("7_vd86d")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 65532, 0, 0, 65531, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0)
-script = ExtResource("8_gd3mp")
 
 [node name="Spike" parent="." instance=ExtResource("9_xj7gs")]
 position = Vector2(237, -93)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbsj4fddy8stc"]
+
+[ext_resource type="Script" path="res://Scripts/levelAudio.gd" id="1_ixi7d"]
+[ext_resource type="AudioStream" uid="uid://e6lemuet8cbt" path="res://Sounds/hifi/Theme.mp3" id="2_50tws"]
+[ext_resource type="AudioStream" uid="uid://b41ompvxh48ab" path="res://Sounds/hifi/Win theme.mp3" id="3_0hx5l"]
+
+[node name="levelAudio" type="Node2D"]
+script = ExtResource("1_ixi7d")
+
+[node name="Themeplayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-576, -324)
+stream = ExtResource("2_50tws")
+
+[node name="WindSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0hx5l")
+autoplay = true

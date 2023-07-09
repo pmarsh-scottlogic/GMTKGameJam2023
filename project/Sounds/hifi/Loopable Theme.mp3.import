@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbrny2aivh78u"
+path="res://.godot/imported/Loopable Theme.mp3-b7947caeea1ea153eac375162438ef75.mp3str"
+
+[deps]
+
+source_file="res://Sounds/hifi/Loopable Theme.mp3"
+dest_files=["res://.godot/imported/Loopable Theme.mp3-b7947caeea1ea153eac375162438ef75.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
