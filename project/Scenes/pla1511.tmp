@@ -75,6 +75,9 @@ lock_rotation = true
 script = ExtResource("1_tdkvs")
 maxForce = 200.0
 forceMagnitudeMultiplier = 15.0
+timeSlowProportion = null
+arrows = null
+airbourne = null
 lineLengthMultiplier = 0.5
 fullDrawbackTime = 0.1
 

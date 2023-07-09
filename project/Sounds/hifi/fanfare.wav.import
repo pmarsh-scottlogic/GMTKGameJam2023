@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://lrc7ee5gunyj"
-path="res://.godot/imported/land.wav-7a054c574e2bb3fe0148ceb4086e4ac0.sample"
+uid="uid://dbpvycawl8dxa"
+path="res://.godot/imported/fanfare.wav-550f2d0eb06c3a36757c24192c7d5212.sample"
 
 [deps]
 
-source_file="res://Sounds/land.wav"
-dest_files=["res://.godot/imported/land.wav-7a054c574e2bb3fe0148ceb4086e4ac0.sample"]
+source_file="res://Sounds/hifi/fanfare.wav"
+dest_files=["res://.godot/imported/fanfare.wav-550f2d0eb06c3a36757c24192c7d5212.sample"]
 
 [params]
 
