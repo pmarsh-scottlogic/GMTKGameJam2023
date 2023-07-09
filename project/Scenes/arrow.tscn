@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c25t42bjioe3x"]
+[gd_scene load_steps=5 format=3 uid="uid://c25t42bjioe3x"]
 
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_4qntm"]
 [ext_resource type="Texture2D" uid="uid://bmtc16rqsrlkx" path="res://Graphics/Object sprites/Arrow.png" id="1_8dmi7"]
+[ext_resource type="AudioStream" uid="uid://cywkqr0w8j866" path="res://Sounds/hifi/wood_impact_single.mp3" id="3_clmd3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpnvk"]
 radius = 18.9419
@@ -11,6 +12,8 @@ height = 39.9884
 position = Vector2(316, 343)
 collision_layer = 2
 collision_mask = 2
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_4qntm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,3 +24,8 @@ texture = ExtResource("1_8dmi7")
 position = Vector2(-1, 1)
 scale = Vector2(0.950276, 0.059961)
 shape = SubResource("CapsuleShape2D_qpnvk")
+
+[node name="impactSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_clmd3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

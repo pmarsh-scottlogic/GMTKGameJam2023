@@ -21,11 +21,14 @@ var aimstate: AimStates = AimStates.IDLE
 @export var airbourne: bool
 @export var lineLengthMultiplier: float = 1
 
+# drawing back the bow takes time
 @export var fullDrawbackTime: float = 1
 var currentDrawbackTime: float = 0
 var drawbackMultiplier: float = 0
 
 var lineAppearanceTimer: float = 0
+
+var visualEnergymultiplier: float = 0
 
 # The Indicator Arrow
 @onready var line := get_node("BowArea/Line2D")
@@ -39,6 +42,7 @@ var lineAppearanceTimer: float = 0
 # Sound players
 @onready var shootSoundPlayer := $soundPlayers/shootSoundPlayer
 @onready var landSoundPlayer := $soundPlayers/landSoundPlayer
+@onready var bowDrawSoundPlayer := $soundPlayers/bowDrawSoundPlayer
 
 var mainNode: Node2D
 
@@ -70,7 +74,7 @@ func showLine(delta):
 	
 	var visualEnergyAppliedAt = 0.6
 	var normConst = 1 / (1 - visualEnergyAppliedAt)
-	var visualEnergymultiplier = max(drawbackMultiplier - visualEnergyAppliedAt, 0) * normConst
+	visualEnergymultiplier = max(drawbackMultiplier - visualEnergyAppliedAt, 0) * normConst
 	
 	var shakeAmount : float =  visualEnergymultiplier * 2
 	var shakeOffset := Vector2.UP * sin(lineAppearanceTimer * 800) * shakeAmount
@@ -105,12 +109,15 @@ func _input(event):
 		if event.pressed:
 			leftMouseHeld = true
 			arrowAimLogic()
+			bowDrawSoundPlayer.play()
 		elif !event.pressed:
 			leftMouseHeld = false
 			launchInputLogic()
+			bowDrawSoundPlayer.stop()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT :
 		if event.pressed:
 			cancelAim()
+			bowDrawSoundPlayer.stop()
 		elif !event.pressed:
 			pass
 
