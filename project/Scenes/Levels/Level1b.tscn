@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnybv2vnslduw"]
+[gd_scene load_steps=5 format=3 uid="uid://cu00ea668v6ha"]
 
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_k7a1k"]
 [ext_resource type="TileSet" uid="uid://b04t01hsukd1k" path="res://Tilesets/basicestTileset.tres" id="2_7sf00"]
-[ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_v0fmh"]
-[ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="4_yt2ov"]
+[ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="3_v0fmh"]
+[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_yt2ov"]
 
 [node name="MainNode" type="Node2D"]
 

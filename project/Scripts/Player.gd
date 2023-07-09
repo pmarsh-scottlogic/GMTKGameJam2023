@@ -108,7 +108,7 @@ func spawnArrow():
 	else:
 		newArrow.rotation = bowArea.rotation
 	
-	mainNode.add_child(newArrow)
+	self.get_owner().add_child(newArrow)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
@@ -126,6 +126,11 @@ func _input(event):
 			bowDrawSoundPlayer.stop()
 		elif !event.pressed:
 			pass
+	elif event is InputEventKey:
+		if event.as_text_keycode() == "R" and event.pressed:
+			get_tree().reload_current_scene()
+	
+	
 
 func _on_body_entered(body):
 	landSoundPlayer.play()

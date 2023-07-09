@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var followPlayer := true
 @export var maxSpeed : float = 10
-@export var catchupSpeed : float = 5
+@export var catchupSpeed : float = 20
 @export var lookAheadDistance := 250
 @export var timeUntilFollow : float = 0
 var age = 0
