@@ -26,7 +26,6 @@ position = Vector2(5183, 1006)
 
 [node name="Player" parent="." instance=ExtResource("2_gnc5a")]
 position = Vector2(93, 410)
-arrows = 100
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(190, 277)
