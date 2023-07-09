@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bty5tulh00g33"]
 
 [ext_resource type="Script" path="res://Scripts/Spike.gd" id="1_4r3bs"]
-[ext_resource type="Texture2D" uid="uid://bvvajn47oivvm" path="res://Graphics/spoik.png" id="2_8q7ta"]
+[ext_resource type="Texture2D" uid="uid://bvvajn47oivvm" path="res://Graphics/Object sprites/spoik.png" id="2_8q7ta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvfti"]
 size = Vector2(268, 18)

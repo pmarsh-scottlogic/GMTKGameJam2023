@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvajn47oivvm"
-path="res://.godot/imported/spoik.png-efeadb456ba3d3ab9f77b161b65e1a95.ctex"
+uid="uid://bx0cd0alypsmm"
+path="res://.godot/imported/Spikes tile.png-a89da3d03880b041332233ac637b50c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/spoik.png"
-dest_files=["res://.godot/imported/spoik.png-efeadb456ba3d3ab9f77b161b65e1a95.ctex"]
+source_file="res://Graphics/Object sprites/Spikes tile.png"
+dest_files=["res://.godot/imported/Spikes tile.png-a89da3d03880b041332233ac637b50c2.ctex"]
 
 [params]
 
