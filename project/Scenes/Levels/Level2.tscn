@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/parallaxSkybox.gd" id="8_gd3mp"]
 [ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="9_xj7gs"]
 
-[node name="MainNode" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -2167.0

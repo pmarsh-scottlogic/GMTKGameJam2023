@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/smartCamera.tscn" id="3_v0fmh"]
 [ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_yt2ov"]
 
-[node name="MainNode" type="Node2D"]
+[node name="MainNode3" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_k7a1k")]
 position = Vector2(-1449, 547)

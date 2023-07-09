@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/atmospheric_particles.tscn" id="7_3xg44"]
 [ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="10_1vwvv"]
 
-[node name="MainNode" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="bigSky" type="TileMap" parent="."]
 z_index = -10

@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://betyu0fkpoy2n"]
+
+[ext_resource type="Texture2D" uid="uid://b5o77ydul1qqc" path="res://Graphics/Character sprites/Lower body.png" id="1_wei7l"]
+[ext_resource type="Texture2D" uid="uid://bedu8fno7n51l" path="res://Graphics/Character sprites/Upper body Reload.png" id="2_1swrk"]
+[ext_resource type="Script" path="res://Scripts/HandleCutScene.gd" id="3_nhu2n"]
+[ext_resource type="FontFile" uid="uid://sl580o80hh8n" path="res://Fonts/slkscr.ttf" id="4_7qnqq"]
+[ext_resource type="PackedScene" uid="uid://cvx6xtsjprh3s" path="res://Scenes/gate.tscn" id="5_g26e8"]
+[ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="6_q2o2e"]
+
+[sub_resource type="Animation" id="Animation_samy5"]
+resource_name = "SpinPlayer"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr3rn"]
+_data = {
+"SpinPlayer": SubResource("Animation_samy5")
+}
+
+[sub_resource type="Animation" id="Animation_jmlhe"]
+resource_name = "fallPlayer"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, -130), Vector2(200, 900)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ort6s"]
+_data = {
+"fallPlayer": SubResource("Animation_jmlhe")
+}
+
+[node name="Falling" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(200, -130)
+scale = Vector2(3, 3)
+
+[node name="LowerBody" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1.66667, 14.6667)
+scale = Vector2(1, 0.993166)
+texture = ExtResource("1_wei7l")
+
+[node name="UpperBodyReload" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(8.66667, -14)
+texture = ExtResource("2_1swrk")
+
+[node name="animation" type="Node" parent="."]
+script = ExtResource("3_nhu2n")
+
+[node name="SpinPlayer" type="AnimationPlayer" parent="animation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_fr3rn")
+}
+
+[node name="fallPlayer" type="AnimationPlayer" parent="animation"]
+libraries = {
+"": SubResource("AnimationLibrary_ort6s")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 366.0
+offset_top = 186.0
+offset_right = 1257.0
+offset_bottom = 498.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7qnqq")
+theme_override_font_sizes/font_size = 75
+text = "made for
+GMTK game jam
+2023"
+horizontal_alignment = 1
+
+[node name="Gate" parent="." instance=ExtResource("5_g26e8")]
+position = Vector2(-220, 5506)
+scale = Vector2(58.93, 3.34211)
+
+[node name="Player" parent="." instance=ExtResource("6_q2o2e")]
+position = Vector2(-820, -10377)
+arrows = 0

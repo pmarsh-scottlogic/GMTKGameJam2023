@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://whp6ylga1dan"]
+[gd_scene load_steps=10 format=3 uid="uid://whp6ylga1dan"]
 
+[ext_resource type="PackedScene" uid="uid://c7bkqqf12f075" path="res://Scenes/big_sky.tscn" id="1_07gtg"]
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_8ff1o"]
-[ext_resource type="PackedScene" uid="uid://cakw8t1bm66ns" path="res://Scenes/Tilemaps/introLevelTileMap.tscn" id="2_i1ty3"]
-[ext_resource type="PackedScene" uid="uid://bty5tulh00g33" path="res://Scenes/spike.tscn" id="3_xa2y0"]
+[ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="3_53ga6"]
+[ext_resource type="Texture2D" uid="uid://cjdtc4alslgkt" path="res://Graphics/Object sprites/Target sprite.png" id="4_n6q5i"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="4_t2qwc"]
-[ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="5_5dgi4"]
+[ext_resource type="FontFile" uid="uid://sl580o80hh8n" path="res://Fonts/slkscr.ttf" id="5_ojkci"]
 
-[node name="MainNode" type="Node2D"]
+[sub_resource type="Animation" id="Animation_xv7rl"]
+resource_name = "TItleBob"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1.1487),
+"update": 0,
+"values": [Vector2(395, 37), Vector2(395, 60), Vector2(395, 37)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ejdy"]
+_data = {
+"TItleBob": SubResource("Animation_xv7rl")
+}
+
+[node name="introLevel" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("2_i1ty3")]
 position = Vector2(267, 611)
@@ -21,3 +43,7 @@ position = Vector2(-329, -77)
 [node name="Camera2D" parent="." instance=ExtResource("4_t2qwc")]
 
 [node name="HUD" parent="." instance=ExtResource("5_5dgi4")]
+
+[node name="Gate2" parent="." instance=ExtResource("7_pne0f")]
+position = Vector2(-133, 862.625)
+scale = Vector2(75.65, 1.99067)
