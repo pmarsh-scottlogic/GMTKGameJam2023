@@ -27,6 +27,6 @@ layer_0/tile_data = PackedInt32Array(458737, 0, 0, 524273, 0, 0, 589809, 0, 0, 4
 position = Vector2(576, 324)
 scale = Vector2(1, 1)
 zoom = Vector2(1, 1)
-catchupSpeed = 0.003
+catchupSpeed = 20.0
 
 [node name="HUD" parent="." instance=ExtResource("4_1qbgj")]
