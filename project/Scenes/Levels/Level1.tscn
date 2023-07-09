@@ -1,32 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm4ur0r2rlybd"]
+[gd_scene load_steps=7 format=3 uid="uid://dm4ur0r2rlybd"]
 
 [ext_resource type="PackedScene" uid="uid://by8tqvb1ea7b5" path="res://Scenes/player.tscn" id="1_nprj1"]
+[ext_resource type="PackedScene" uid="uid://ckqu3wcno6vn4" path="res://Scenes/gate.tscn" id="1_v06n2"]
 [ext_resource type="TileSet" uid="uid://b04t01hsukd1k" path="res://Tilesets/basicestTileset.tres" id="2_84wxk"]
 [ext_resource type="TileSet" uid="uid://bdjct3grxxw0h" path="res://Tilesets/officialTileset.tres" id="2_u7rjs"]
 [ext_resource type="PackedScene" uid="uid://dv3uvh8blncmg" path="res://Scenes/smartCamera.tscn" id="3_0l5wd"]
-[ext_resource type="AudioStream" uid="uid://dbpvycawl8dxa" path="res://Sounds/hifi/fanfare.wav" id="3_13tnw"]
 [ext_resource type="PackedScene" uid="uid://1t201cjpvtss" path="res://Scenes/hud.tscn" id="4_1qbgj"]
-[ext_resource type="Texture2D" path="res://Graphics/Object sprites/Gate.png" id="6_55hj5"]
-[ext_resource type="Script" path="res://Scripts/Gate.gd" id="7_elwra"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oqpr"]
-size = Vector2(47, 92)
 
 [node name="MainNode" type="Node2D"]
 
-[node name="Gate" type="Sprite2D" parent="."]
-position = Vector2(1107, 274)
-texture = ExtResource("6_55hj5")
-script = ExtResource("7_elwra")
-
-[node name="Area2D" type="Area2D" parent="Gate"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
-position = Vector2(0.5, 21)
-shape = SubResource("RectangleShape2D_7oqpr")
-
-[node name="fanfarePlayer" type="AudioStreamPlayer2D" parent="Gate"]
-stream = ExtResource("3_13tnw")
+[node name="Gate" parent="." instance=ExtResource("1_v06n2")]
 
 [node name="Player" parent="." instance=ExtResource("1_nprj1")]
 position = Vector2(337, 98)
@@ -50,5 +33,3 @@ zoom = Vector2(1, 1)
 catchupSpeed = 20.0
 
 [node name="HUD" parent="." instance=ExtResource("4_1qbgj")]
-
-[connection signal="body_entered" from="Gate/Area2D" to="Gate" method="_on_area_2d_body_entered"]
