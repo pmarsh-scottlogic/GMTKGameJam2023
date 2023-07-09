@@ -42,10 +42,10 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_qyqgq")
+"texture": ExtResource("5_nhycb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_nhycb")
+"texture": ExtResource("7_qyqgq")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_q0xys")
@@ -98,10 +98,8 @@ default_color = Color(0.607843, 0.580392, 0.556863, 1)
 gradient = SubResource("Gradient_tfjf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BowArea"]
-position = Vector2(-15, -92)
+position = Vector2(-24, -117)
 sprite_frames = SubResource("SpriteFrames_x41ml")
-frame = 1
-frame_progress = 0.0323329
 centered = false
 offset = Vector2(0, 40)
 
