@@ -14,7 +14,7 @@ enum AimStates {IDLE, AIMING}
 var aimstate: AimStates = AimStates.IDLE
 
 # Time slowdown proportional speed
-@export var timeSLowProportion : float = 0.1
+@export var timeSlowProportion : float = 0.1
 
 @export var arrows: int = 30
 
@@ -46,9 +46,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if aimstate == AimStates.AIMING:
-		_showLine()
+		showLine()
 		
-func _showLine():
+func showLine():
 	line.show()
 	arrow.show()
 	line.points[0] = to_local(self.position)
@@ -59,15 +59,15 @@ func _showLine():
 	else:
 		line.points[1] = to_local(get_global_mouse_position())
 
-func _playerArrowLaunch(force: Vector2):
+func playerArrowLaunch(force: Vector2):
 	if arrows == 0:
 		return
 	self.linear_velocity = Vector2.ZERO
 	apply_impulse(force)
-	_spawnArrow()
+	spawnArrow()
 	arrows -= 1
 
-func _spawnArrow():
+func spawnArrow():
 	var newArrow = arrowScene.instantiate()
 	newArrow.position = arrow.global_position
 	if(get_global_mouse_position().x > self.get_position().x):
@@ -81,13 +81,13 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
 		if event.pressed:
 			leftMouseHeld = true
-			_arrowAimLogic()
+			arrowAimLogic()
 		elif !event.pressed:
 			leftMouseHeld = false
-			_launchInputLogic()
+			launchInputLogic()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT :
 		if event.pressed:
-			_cancelAim()
+			cancelAim()
 		elif !event.pressed:
 			pass
 
@@ -99,13 +99,13 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	airbourne = true
 
-func _arrowAimLogic():
+func arrowAimLogic():
 	if aimstate != AimStates.IDLE or arrows == 0:
 		return
-	Engine.time_scale = timeSLowProportion
+	Engine.time_scale = timeSlowProportion
 	aimstate = AimStates.AIMING
 
-func _launchInputLogic():
+func launchInputLogic():
 	if aimstate != AimStates.AIMING :
 		return
 	var launch: Vector2 = (get_global_mouse_position() - self.position).normalized()
@@ -113,14 +113,14 @@ func _launchInputLogic():
 	if magnitude > maxForce:
 		magnitude = maxForce
 	magnitude *= forceMagnitudeMultiplier
-	_playerArrowLaunch(launch * magnitude)
+	playerArrowLaunch(launch * magnitude)
 	line.hide()
 	arrow.hide()
 	Engine.time_scale = 1
 	shootSoundPlayer.play()
 	aimstate = AimStates.IDLE
 
-func _cancelAim():
+func cancelAim():
 	if aimstate != AimStates.AIMING:
 		return
 	Engine.time_scale = 1
