@@ -12,8 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://dk4arwa4fqld0" path="res://Sounds/hifi/landing.mp3" id="10_fywpg"]
 [ext_resource type="AudioStream" uid="uid://ciw0rufrmn2xi" path="res://Sounds/hifi/bow_draw.mp3" id="11_uco05"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcxm"]
-size = Vector2(18, 67)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xb1a"]
+radius = 12.0
+height = 67.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq2m8"]
 animations = [{
@@ -79,7 +80,7 @@ fullDrawbackTime = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2.5)
-shape = SubResource("RectangleShape2D_fjcxm")
+shape = SubResource("CapsuleShape2D_6xb1a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 16)
