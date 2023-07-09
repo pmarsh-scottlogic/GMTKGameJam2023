@@ -75,7 +75,6 @@ lock_rotation = true
 script = ExtResource("1_tdkvs")
 maxForce = 200.0
 forceMagnitudeMultiplier = 15.0
-lineLengthMultiplier = 0.5
 fullDrawbackTime = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -92,7 +91,7 @@ script = ExtResource("3_ofalc")
 [node name="Line2D" type="Line2D" parent="BowArea"]
 position = Vector2(-1, -16)
 points = PackedVector2Array(0, 0, 0, 0)
-width = 3.0
+width = 4.0
 width_curve = SubResource("Curve_dor3a")
 default_color = Color(0.607843, 0.580392, 0.556863, 1)
 gradient = SubResource("Gradient_tfjf7")
