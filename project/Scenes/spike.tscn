@@ -12,12 +12,11 @@ contact_monitor = true
 script = ExtResource("1_4r3bs")
 
 [node name="Spoik" type="Sprite2D" parent="."]
-position = Vector2(267, 611)
 scale = Vector2(8.66, 8.66)
 texture = ExtResource("2_8q7ta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(269, 738)
+position = Vector2(0, 130)
 shape = SubResource("RectangleShape2D_uvfti")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
